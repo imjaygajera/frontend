@@ -1,0 +1,107 @@
+/* google fonts */
+@import url(https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Indie+Flower&family=Playfair+Display:wght@600&family=Righteous&family=Rowdies&display=swap);
+
+* {
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: "helvetica", sans-serif;
+    font-weight: bold;
+    font-size: 10rem;
+    color: white;
+    background: black;
+}
+
+.wrapper {
+    width: 100%;
+    margin: auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.m:hover,
+.e:hover,
+.g:hover,
+.a:hover,
+.n:hover,
+.ex:hover {
+    padding: 0 20px;
+}
+
+.m {
+    color: red;
+    font-family: "Righteous", cursive;
+}
+
+.e {
+    color: yellow;
+    font-family: "Indie Flower", cursive;
+}
+
+.e:hover {
+    color: yellow;
+}
+
+.g {
+    color: limegreen;
+    font-family: "Arvo", serif;
+}
+
+.a {
+    color: blue;
+    font-family: "Playfair Display", serif;
+}
+
+.n {
+    color: orchid;
+    font-family: "Rowdies", cursive;
+}
+
+.m:hover {
+    color: orchid;
+    background-color: red;
+    font-size: 14rem;
+    cursor: pointer;
+}
+
+.e:hover {
+    color: blue;
+    background-color: yellow;
+    cursor: pointer;
+    font-size: 14rem;
+}
+
+.g:hover {
+    color: lightskyblue;
+    background-color: limegreen;
+    cursor: pointer;
+    font-size: 14rem;
+}
+
+.a:hover {
+    color: yellow;
+    background-color: blue;
+    cursor: pointer;
+    font-size: 14rem;
+}
+
+.n:hover {
+    color: red;
+    background-color: orchid;
+    font-size: 14rem;
+    cursor: pointer;
+}
+
+.ex {
+    color: red;
+}
+
+.ex:hover {
+    background-color: red;
+    color: orchid;
+    font-size: 14rem;
+    cursor: pointer;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tweet Quotes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <img src="" id="ImgAPi" class="bg"/>
+        <div class="container">
+            <div class="inner">
+                <div class="box">
+                    <p class="number">
+                        <img src="logo.png" alt="tweetMe" id="tweetMe" title="TweetMe"/>
+                    </p>
+                    <div class="text">
+                        <i class="star-quote fas fa-quote-left"></i>
+                        <p id="quotes" class="quote"> </p>
+                        
+                        <p id="author" class="author"></p>
+                    </div>
+                    <label class="button">
+                        <p id="new_Q" class="new_q">Next Quote</p>
+                    </label>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+    </body>
+    <script>
+        const quotes = document.getElementById("quotes");
+        const author = document.getElementById("author");
+        const new_Q = document.getElementById("new_Q");
+        const tweetMe = document.getElementById("tweetMe");
+        let realData = "";
+        let quotesData = "";
+        let realImg = "";
+        const tweetNow = () => {
+            let  tweetPost = `https://twitter.com/compose/tweet?text=${quotesData.text} - ${quotesData.author}`;
+            window.open(tweetPost)
+        };
+        const getNewQuotes = () => {
+            let rnum = Math.floor(Math.random()*Math.floor(realData.length));
+            quotesData = realData[rnum]
+            quotes.innerText = `${quotesData.text}`;
+            quotesData.author == null   
+            ? (author.innerText = ' - unKnown')
+            : (author.innerText = ` - ${quotesData.author}`);
+        };
+        const getQuotes = async () => {
+            const api = "https://type.fit/api/quotes";
+            const imgApi = "https://source.unsplash.com/random";
+            try {
+                let data = await fetch(api);
+                realData = await data.json();
+                getNewQuotes();
+            } catch (error) {}
+            try{
+                let img = await fetch(imgApi)
+                let ImgAPi = document.getElementById("ImgAPi");
+                ImgAPi.src = img.url
+                realImg = await img.json();
+            }catch (error) {}
+        };
+        tweetMe.addEventListener("click",tweetNow);
+        new_Q.addEventListener("click",getNewQuotes);
+        getQuotes();
+
+    
+    </script>
+</html>
