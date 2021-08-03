@@ -39,6 +39,16 @@
         let realData = "";
         let quotesData = "";
         let realImg = "";
+        const J = {
+	W:window,
+	D:document,
+	H:history,
+	L:localStorage,
+	chrome:navigator.userAgent.indexOf("Chrome"),
+	S:['addEventListener','load','resize','keyup','click','change'],
+	gret:"",
+	BGImage:""
+}
         const tweetNow = () => {
             let  tweetPost = `https://twitter.com/compose/tweet?text=${quotesData.text} - ${quotesData.author}`;
             window.open(tweetPost)
@@ -53,7 +63,7 @@
         };
         const getQuotes = async () => {
             const api = "https://type.fit/api/quotes";
-            const imgApi = "https://source.unsplash.com/random";
+            const imgApi = 'https://picsum.photos/'+J.W.innerWidth+'/'+J.W.innerHeight;
             try {
                 let data = await fetch(api);
                 realData = await data.json();
