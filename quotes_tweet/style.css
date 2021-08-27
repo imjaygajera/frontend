@@ -112,6 +112,7 @@ body{
 }
 
 .new_q {
+    user-select: none;
     position: absolute;
     top:90%;
     width: 100%;
