@@ -17,16 +17,14 @@
 	BGImage:""
 }
         const tweetNow = () => {
-            let  tweetPost = `https://twitter.com/compose/tweet?text=${quotesData.text} - ${quotesData.author}`;
+            let  tweetPost = `https://twitter.com/compose/tweet?text=${quotesData.text} ${author.innerText}`;
             window.open(tweetPost)
         };
         const getNewQuotes = () => {
             let rnum = Math.floor(Math.random()*Math.floor(realData.length));
             quotesData = realData[rnum]
             quotes.innerText = `${quotesData.text}`;
-            quotesData.author == null   
-            ? (author.innerText = ' - unKnown')
-            : (author.innerText = ` - ${quotesData.author}`);
+            (quotesData.author == null) ? (author.innerText = ' - unKnown') : (author.innerText = ` - ${quotesData.author}`);
         };
         const getQuotes = async () => {
             const api = "https://type.fit/api/quotes";
