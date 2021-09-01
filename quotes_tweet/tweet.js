@@ -17,7 +17,7 @@
 	BGImage:""
 }
         const tweetNow = () => {
-            let  tweetPost = `https://twitter.com/compose/tweet?text=${quotesData.text} ${author.innerText}`;
+            let  tweetPost = `https://twitter.com/compose/tweet?text=${quotesData.text}+%0A%0A+${author.innerText}`;
             window.open(tweetPost)
         };
         const getNewQuotes = () => {
